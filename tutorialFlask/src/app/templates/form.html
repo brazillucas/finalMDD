@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Previsão Iris</title>
+    <link rel="stylesheet" href="../static/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+      <div class="page-header">
+          <h1>{{ titulo }}</h1>
+      </div>
+      <form action="/predicaoform" method="post">
+        <fieldset>
+          <div class="form-group">
+            <label for="sepall">Sepal Length</label>
+            <input type="text" id="sepall" name="sepall" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="sepalw">Sepal Width</label>
+            <input type="text" id="sepalw" name="sepalw" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="petall">Petal Length</label>
+            <input type="text" id="petall" name="petall" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="petalw">Petal Width</label>
+            <input type="text" id="petalw" name="petalw" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+        </fieldset>
+      </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Previsão Câncer Cervical</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <style>
+        body {
+          background-color: #330055;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%233a015d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23410165' cx='50' cy='100' r='50'/%3E%3Cg fill='%2348026e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23500376' cx='50' cy='200' r='50'/%3E%3Cg fill='%2357047e' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%235f0587' cx='50' cy='300' r='50'/%3E%3Cg fill='%2367068f' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%236f0798' cx='50' cy='400' r='50'/%3E%3Cg fill='%237707a0' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238008a9' cx='50' cy='500' r='50'/%3E%3Cg fill='%238909b1' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239109ba' cx='50' cy='600' r='50'/%3E%3Cg fill='%239a09c3' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a309cb' cx='50' cy='700' r='50'/%3E%3Cg fill='%23ad09d4' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b608dc' cx='50' cy='800' r='50'/%3E%3Cg fill='%23c007e5' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c905ee' cx='50' cy='900' r='50'/%3E%3Cg fill='%23d303f6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23D0F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+          background-attachment: fixed;
+          background-size: contain;
+          color: aliceblue;
+        }
+        .container {
+          margin-top: 30pt;
+          margin-bottom: 30pt;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+      
+      <div >
+          <h1>{{ titulo }}</h1>
+          <p>Preencha os dados para sobre a possibilidade de desenvolver Câncer do colo do Útero.</p>
+      </div>
+      
+      <form action="/predicaoform" method="post">
+        <fieldset>
+
+          <div class="form-group">
+          <!-- Idade -->
+            <label for="idade">Sua idade: </label>
+            <input type="number" id="idade" name="idade" value="18"class="form-control"required>
+          </div>
+          <!-- <br> -->
+
+          <div class="form-group">
+            <!-- Parceiros Sexuais -->
+            <div class="row">
+              <div class="col">
+                <label for="num_sex_parc">Parceiros Sexuais:</label>
+                <input type="number" id="num_sex_parc" name="num_sex_parc" value="1" class="form-control"required>
+              </div>
+              <!-- <br> -->
+              <!-- Quantidade de Gravidez -->
+              <div class="col">
+                <label for="num_gravidez">Quantidade de gestações: </label>
+                <input type="number" id="num_gravidez" name="num_gravidez" value="0" class="form-control"required>
+              </div>
+            </div>
+          </div>
+          <!-- <br> -->
+
+          <div class="form-group">
+          <!-- Fumante -->
+            <div class="row">
+              <div class="col">
+                <label for = "fumante">É fumante:</label>
+                <select name="fumante" id="fumante" class="form-control"required>
+                  <option value="1">Sim</option>
+                  <option value="0" selected>Não</option>
+                </select>
+              </div>
+              <!-- Quantos anos de fumante -->
+              <div class="col">
+                <label for="fumante_anos">Tempo que fuma:</label>
+                <input type="number" id="fumante_anos" name="fumante_anos" value="0" class="form-control"required>
+              </div>
+            </div>
+          </div>
+          <!-- <br> -->
+
+          <div class="form-group">
+          <!-- Contraceptivos Hormonais -->
+            <div class="row">
+              <div class="col">
+                <label for = "cntrcep_hormo">Usa Contraceptivos Hormonais:</label>
+                <select name="cntrcep_hormo" id="cntrcep_hormo" class="form-control"required>
+                  <option value="1">Sim</option>
+                  <option value="0" selected>Não</option>
+                </select>
+              </div>
+              <!-- Tempo de uso de Contraceptivos Hormonais -->
+              <div class="col">
+                <label for="cntrcep_hormo_anos">Tempo de uso de Contraceptivos Hormonais:</label>
+                <input type="number" id="cntrcep_hormo_anos" name="cntrcep_hormo_anos" value="0" class="form-control"required>
+              </div>
+            </div>
+          </div>
+          <!-- <br> -->
+
+          <div class="form-group">
+          <!-- DIU -->
+            <div class="row">
+              <div class="col">
+                <label for = "diu">Usa DIU:</label>
+                <select name="diu" id="diu" class="form-control"required>
+                  <option value="1">Sim</option>
+                  <option value="0" selected>Não</option>
+                </select>
+              </div>
+
+              <!-- Tempo de uso do DIU -->
+              <div class="col">
+                <label for="diu_anos">Tempo de uso do DIU</label>
+                <input type="number" id="diu_anos" name="diu_anos" value="0" class="form-control"required>
+              </div>
+            </div>
+          </div>
+          <!-- <br> -->
+          
+          <div class="form-group">
+          <!-- ISTs -->
+            <div class="row">
+              <div class="col">
+                <label for = "ists">Tem ISTs:</label>
+                <select name="ists" id="ists" class="form-control" required>
+                  <option value="1">Sim</option>
+                  <option value="0" selected>Não</option>
+                </select>
+              </div>
+            <!-- Quantidade de ISTs -->
+              <div class="col">
+                <label for="num_ists">Quantidade de ISTs</label>
+                <input type="number" id="num_ists" name="num_ists" value="0" class="form-control" required>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-2">Enviar</button>
+        </fieldset>
+      </form>
+        <!-- </div> -->
+    </div>
+
+    <!-- Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+
